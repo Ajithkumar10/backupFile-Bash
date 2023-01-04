@@ -1,30 +1,16 @@
 #!/bin/bash
 
-#Your Files and Folders for backup
+# prompt the user for the source and destination directories
+echo "Enter the source directory: "
+read source
+echo "Enter the destination directory: "
+read destination
 
-origin_fol=/home/ajith/
+# copy the files and folders from the source to the destination
+cp -r $source $destination
 
-#where to backup
-backup_fol=/home/ajith/backup
-
-#Create a unique Archive file name for backup
-
-day=$(date +%A)
-hostname=$(hostname -s)
-archive_filename="$hostname-$day.tgz"
-
-
-#Print start of the backup
-
-echo "Backing up files from $origin_fol to $backup_fol/$archive_filename"
-
-echo "$date"
-
-tar czf $backup_fol/$archive_filename $origin_fol
-
-#Print Backup completed message
-
-echo "Backup Completed"
+# display a message to confirm that the backup has been completed
+echo "Backup complete!"
 
 
 
